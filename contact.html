@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Deepak Banerjee</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
+  <style>
+    .contact-section {
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 2rem;
+      border-radius: 12px;
+      background-color: var(--card-bg);
+      box-shadow: var(--shadow);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: var(--input-bg);
+      color: var(--text);
+      font-family: inherit;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    button {
+      background-color: var(--accent);
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -22,21 +61,19 @@
   </header>
 
   <section class="contact-section">
-    <h1>Get in Touch</h1>
-    <form action="mailto:deepakbanerjee314@gmail.com" method="post" enctype="text/plain" class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Email</button>
+    <h1>Contact Me</h1>
+    <p>If you’d like to get in touch, feel free to send me an email:</p>
+
+    <form action="mailto:deepakbanerjee314@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Email</button>
     </form>
-    <p>Or reach out via my socials below.</p>
-    <div class="social-links">
-      <a href="https://github.com/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></a>
-      <a href="https://linkedin.com/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn"></a>
-      <a href="https://medium.com/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png" alt="Medium"></a>
-    </div>
   </section>
 
-  <footer><p>© 2025 Deepak Banerjee. All Rights Reserved.</p></footer>
+  <footer>
+    <p>© <span id="year"></span> Deepak Banerjee. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
