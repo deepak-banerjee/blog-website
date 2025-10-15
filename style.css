@@ -1,0 +1,302 @@
+/* ---------- BASIC RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background 0.3s, color 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- THEME COLORS ---------- */
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --accent: #0078ff;
+  --nav-bg: #f5f5f5;
+  --card-bg: #ffffff;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #f2f2f2;
+  --accent: #4dabf7;
+  --nav-bg: #1e1e1e;
+  --card-bg: #1a1a1a;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  background: var(--nav-bg);
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+/* ---------- HAMBURGER MENU ---------- */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  color: var(--text);
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+  background: url('https://via.placeholder.com/1600x800') center/cover no-repeat;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero .profile-pic {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border: 3px solid var(--accent);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+}
+
+.hero p {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* ---------- ABOUT ---------- */
+.about-section {
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.about-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about-photo {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+/* ---------- POSTS PAGE ---------- */
+.posts-section {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.posts-section h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.post {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.post-img {
+  width: 100%;
+  display: block;
+}
+
+.post-content {
+  padding: 1.2rem;
+}
+
+/* ---------- SINGLE POST ---------- */
+.post-page {
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.post-page img {
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 10px;
+}
+
+/* ---------- CONTACT ---------- */
+.contact-section {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 1.5rem auto;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.contact-form button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ---------- SOCIAL ---------- */
+.social-section {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.social-links img {
+  width: 40px;
+  height: 40px;
+  filter: invert(0);
+  transition: transform 0.3s;
+}
+
+body.dark .social-links img {
+  filter: invert(1);
+}
+
+.social-links img:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--nav-bg);
+  margin-top: auto;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    flex-direction: column;
+    background: var(--nav-bg);
+    width: 70%;
+    height: 100vh;
+    padding-top: 2rem;
+    transition: 0.3s;
+  }
+  .nav-links.show {
+    left: 0;
+  }
+  .hamburger {
+    display: block;
+  }
+  .hero .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+}
