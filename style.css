@@ -1,19 +1,24 @@
-/* ---------- BASIC RESET ---------- */
+/* ---------- GLOBAL RESET ---------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s ease, color 0.3s ease;
   font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   line-height: 1.6;
   background-color: var(--bg);
   color: var(--text);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 /* ---------- THEME COLORS ---------- */
@@ -23,14 +28,16 @@ body {
   --accent: #0078ff;
   --nav-bg: #f5f5f5;
   --card-bg: #ffffff;
+  --muted: #555;
 }
 
 body.dark {
   --bg: #121212;
-  --text: #f2f2f2;
+  --text: #f5f5f5;
   --accent: #4dabf7;
   --nav-bg: #1e1e1e;
   --card-bg: #1a1a1a;
+  --muted: #aaa;
 }
 
 /* ---------- NAVBAR ---------- */
@@ -43,11 +50,11 @@ body.dark {
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.navbar .logo {
+.logo {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--accent);
@@ -67,6 +74,7 @@ body.dark {
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--accent);
+  text-decoration: underline;
 }
 
 /* ---------- HAMBURGER MENU ---------- */
@@ -162,9 +170,15 @@ body.dark {
 
 .about-text {
   flex: 1;
+  color: var(--text);
 }
 
-/* ---------- POSTS PAGE ---------- */
+.about-text p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* ---------- POSTS ---------- */
 .posts-section {
   padding: 2rem 1rem;
   max-width: 1000px;
@@ -187,6 +201,8 @@ body.dark {
 .post-img {
   width: 100%;
   display: block;
+  object-fit: cover;
+  height: 250px;
 }
 
 .post-content {
@@ -254,7 +270,6 @@ body.dark {
 .social-links img {
   width: 40px;
   height: 40px;
-  filter: invert(0);
   transition: transform 0.3s;
 }
 
@@ -271,32 +286,41 @@ footer {
   text-align: center;
   padding: 1rem;
   background: var(--nav-bg);
-  margin-top: auto;
   color: var(--text);
   font-size: 0.9rem;
+  margin-top: auto;
 }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 0;
     left: -100%;
     flex-direction: column;
     background: var(--nav-bg);
-    width: 70%;
+    width: 75%;
     height: 100vh;
-    padding-top: 2rem;
-    transition: 0.3s;
+    padding-top: 5rem;
+    transition: left 0.3s ease;
+    z-index: 9999;
   }
+
   .nav-links.show {
     left: 0;
   }
+
   .hamburger {
     display: block;
   }
+
   .hero .profile-pic {
     width: 120px;
     height: 120px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
   }
 }
